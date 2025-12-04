@@ -1,0 +1,51 @@
+body 
+{
+    color: rgba(199, 195, 188, 0.7);
+}
+
+:root 
+{
+    --card-bg: #333;
+    --font-color: #56b6e7;
+}
+
+#post-info .post-title 
+{
+    color: #49b1f5;
+}
+
+#aside-content .card-info .card-info-data > .card-info-data-item a .headline 
+{
+    color: #ff6430;
+}
+
+#aside-content #card-toc .toc-content .toc-link 
+{
+    color: #49b1f5;
+}
+
+hr {
+
+    border: 2px dashed #ffc621;
+}
+
+blockquote {
+    color: #888888;
+}
+
+
+#aside-content .card-info .card-info-data > .card-info-data-item a .length-num 
+{
+    color: #cecece;
+}
+
+#recent-posts > .recent-post-item >.recent-post-info > .article-title 
+{
+    color: #49b1f5;
+    font-size: 1.2rem;
+}
+
+h1, h2, h3, h4, h5, h6 
+{
+    color: #428bca;
+}

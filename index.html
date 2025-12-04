@@ -1,0 +1,212 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Jonn - 代码搬运工</title><meta name="author" content="Jonn"><meta name="copyright" content="Jonn"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="Rigging | MEL | Python | MayaAPI | MayaPythonAPI |PyQt | C++ ...">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Jonn">
+<meta property="og:url" content="https://blog.cgdreamwork.com/index.html">
+<meta property="og:site_name" content="Jonn">
+<meta property="og:description" content="Rigging | MEL | Python | MayaAPI | MayaPythonAPI |PyQt | C++ ...">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://blog.cgdreamwork.com/uploads/avatar.jpg">
+<meta property="article:author" content="Jonn">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://blog.cgdreamwork.com/uploads/avatar.jpg"><link rel="shortcut icon" href="/uploads/favicon.ico"><link rel="canonical" href="https://blog.cgdreamwork.com/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":150,"languages":{"author":"作者: Jonn","link":"链接: ","source":"来源: Jonn","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  lightbox: 'mediumZoom',
+  Snackbar: undefined,
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: true,
+  islazyload: true,
+  isanchor: true
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = { 
+  isPost: false,
+  isHome: true,
+  isHighlightShrink: false,
+  isToc: false,
+  postUpdate: '2025-12-04 08:29:27'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    })(window)</script><link rel="stylesheet" href="/css/background.css"><meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Jonn" type="application/atom+xml">
+</head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="author-avatar"><img class="avatar-img" data-lazy-src="/uploads/avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">11</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">14</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">4</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div></div></div><div class="page" id="body-wrap"><header class="full_page" id="page-header" style="background-image: url('http://browser9.qhimg.com/bdr/__85/t016f2d85eae219d8ce.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Jonn</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="site-info"><h1 id="site-title">Jonn</h1><div id="site-subtitle"><span id="subtitle"></span></div><div id="site_social_icons"><a class="social-icon" href="https://github.com/jonntd" target="_blank" title=""><i class="fa fa-github"></i></a><a class="social-icon" href="mailto:jonntd@jonntd.com" target="_blank" title=""><i class="fa fa-envelope"></i></a></div></div><div id="scroll-down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="post_cover left_radius"><a href="/post/fb874109.html" title="maya2022 py2 build numpy">     <img class="post_bg" data-lazy-src="https://fastly.jsdelivr.net/gh/jerryc127/CDN/img/material-4.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="maya2022 py2 build numpy"></a></div><div class="recent-post-info"><a class="article-title" href="/post/fb874109.html" title="maya2022 py2 build numpy">maya2022 py2 build numpy</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-03-30T22:19:08.000Z" title="发表于 2023-03-30 22:19:08">2023-03-30</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/code/">code</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/Maya/">Maya</a><span class="article-meta__link">•</span><a class="article-meta__tags" href="/tags/Python/">Python</a></span></div><div class="content">参考
+https://medium.com/@1null4null/cython-maya2018-2019-python2-7-17-921c548337b9
+https://vaishakp.com/2018/11/21/cython-in-maya-2018-windows/
+https://gist.github.com/nrtkbb/5b65d2f5ed42bd9947b5
+
+下载cython源码解压:https://codeload.github.com/cython/cython/zip/refs/heads/master
+1234567891011121314151617181920212223242526用mayapy编译会提示找不到python.h# 增加代码extra_include_dirs = []if &#x27;EXTRA_INCLUDE_DIRS&#x27; in os.environ:	extra_include_dirs = os.environ[&#x27;EXTRA_INCLUDE_DIRS&#x27;].split(&#x27;;&#x27;) ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/post/12e2ce1.html" title="maya_code">     <img class="post_bg" data-lazy-src="https://fastly.jsdelivr.net/gh/jerryc127/CDN/img/material-4.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="maya_code"></a></div><div class="recent-post-info"><a class="article-title" href="/post/12e2ce1.html" title="maya_code">maya_code</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-03-30T22:19:08.000Z" title="发表于 2023-03-30 22:19:08">2023-03-30</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/code/">code</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/Qt/">Qt</a><span class="article-meta__link">•</span><a class="article-meta__tags" href="/tags/QMenu/">QMenu</a><span class="article-meta__link">•</span><a class="article-meta__tags" href="/tags/Maya/">Maya</a><span class="article-meta__link">•</span><a class="article-meta__tags" href="/tags/PySide/">PySide</a></span></div><div class="content">
+  10d79030e8222445804370796b90fca121d84a5651bdfcfb01244e226c595abf41ec1713a23cd1a7c8d2449568e92a2ca9e6480f3ba1dcb5d2175dfb6230de7ad956bc3ee560f75b849599f6cbd30b8b4d5365a10b9ff79d390010d222c7ab9dcf2ed49e40d955bc7e774db95c9a1ac1f2ac1264a71fd598100bd2a3b7083234a157813bbb30d52ba003a23f29e409ff50b59b0a5ebca7b5683cb7124a402ef9a3de7992655bf43571243cf5153455c9baccb65a9114353189b635d3362332c4b1fe26bfb3d646ffb48e8624cb51199965ec36578b0746956af7859634092066a4739f0a78a6e4e4326e0eefcc1a0b57f237d4d5966472659 ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/post/71a4c25d.html" title="unity python api 使用">     <img class="post_bg" data-lazy-src="https://fastly.jsdelivr.net/gh/jerryc127/CDN/img/material-1.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="unity python api 使用"></a></div><div class="recent-post-info"><a class="article-title" href="/post/71a4c25d.html" title="unity python api 使用">unity python api 使用</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-03-23T15:04:25.000Z" title="发表于 2021-03-23 15:04:25">2021-03-23</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/unity/">unity</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/unity/">unity</a></span></div><div class="content">Preview Anim1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465666768697071727374757677787980818283using UnityEngine.Playables;using UnityEngine;using EasyButtons;using UnityEngine.Animations;using Network.Proto;using UnityEditor;using Unity.Entities.UniversalDelegates;using System.Collections.Generic;[ExecuteInEditMode]public class SimpleAnimationPlayer : MonoBehaviour&#123;    private  PlayableGraph _graph;    private Animat ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/post/37132ce7.html" title="VS2013编译boost">     <img class="post_bg" data-lazy-src="https://fastly.jsdelivr.net/gh/jerryc127/CDN/img/material-10.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="VS2013编译boost"></a></div><div class="recent-post-info"><a class="article-title" href="/post/37132ce7.html" title="VS2013编译boost">VS2013编译boost</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2016-09-08T20:02:12.000Z" title="发表于 2016-09-08 20:02:12">2016-09-08</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Visual-Studio/">Visual Studio</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/C/">C++</a><span class="article-meta__link">•</span><a class="article-meta__tags" href="/tags/boost/">boost</a></span></div><div class="content">
+  10d79030e8222445804370796b90fca121d84a5651bdfcfb01244e226c595abf60677996a64048a059b160626b215b073cbf3f4d807755996b7435f0a4e0f8039beeb3607aaa8769e520f03455291f2458fc06d6c740972e470ad78380a8ee2b22414d38f7c0c972865c9666aaa42b78cad0f2c10c08fb7c2dfc2c3ce5f8b06633d1b34c12b9d3c2479f75d6bbc792ad80ca052f1d176236c77932f13dc62a960604d07b8f44883032f99c6c7aff38a546e9629e3f27cd4ef3d5acd263a64f69403d521024fa841db754f711ba3f572b60433a3853c05404285d54734d3aa8ea63b768032bc32cf6f76a4a2e2b845c87ce6d771e11af5e32d ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/post/61ba0cba.html" title="softSelectionweights">     <img class="post_bg" data-lazy-src="https://fastly.jsdelivr.net/gh/jerryc127/CDN/img/material-4.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="softSelectionweights"></a></div><div class="recent-post-info"><a class="article-title" href="/post/61ba0cba.html" title="softSelectionweights">softSelectionweights</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2016-09-08T20:02:12.000Z" title="发表于 2016-09-08 20:02:12">2016-09-08</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/python/">python</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/python/">python</a></span></div><div class="content">12345678910111213141516171819202122232425262728293031import maya.OpenMaya as OpenMayadef softSelection():    #Grab the soft selection    selection = OpenMaya.MSelectionList()    softSelection = OpenMaya.MRichSelection()    OpenMaya.MGlobal.getRichSelection(softSelection)    softSelection.getSelection(selection)        dagPath = OpenMaya.MDagPath()    component = OpenMaya.MObject()        # Filter Defeats the purpose of the else statement    iter = OpenMaya.MItSelectionList( selection,OpenMaya.MF ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/post/7aa2157f.html" title="DeleteUvSets">     <img class="post_bg" data-lazy-src="https://fastly.jsdelivr.net/gh/jerryc127/CDN/img/material-3.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="DeleteUvSets"></a></div><div class="recent-post-info"><a class="article-title" href="/post/7aa2157f.html" title="DeleteUvSets">DeleteUvSets</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2016-09-01T15:04:25.000Z" title="发表于 2016-09-01 15:04:25">2016-09-01</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/code/">code</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/Maya/">Maya</a><span class="article-meta__link">•</span><a class="article-meta__tags" href="/tags/UV/">UV</a></span></div><div class="content">Usage:  Delete UV Sets and rename last uvset
+
+ 
+code:12345678910111213141516171819import maya.cmds as cmdsdef DeleteUvSets(newUVSet,sels):    for mesh in sels:        set = cmds.polyUVSet(mesh, query=True, allUVSets=1 )        for i in range(len(set)):            if i&gt;0:                 cmds.polyUVSet(mesh, delete=True, uvSet=set[i])        try:            cmds.polyUVSet(mesh,rename=True, newUVSet=newUVSet, uvSet= cmds.polyUVSet(mesh, currentLastUVSet=True )[0])        except:            pass ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/post/4fee8c48.html" title="Adding a QMenu to Maya">     <img class="post_bg" data-lazy-src="https://fastly.jsdelivr.net/gh/jerryc127/CDN/img/material-5.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Adding a QMenu to Maya"></a></div><div class="recent-post-info"><a class="article-title" href="/post/4fee8c48.html" title="Adding a QMenu to Maya">Adding a QMenu to Maya</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2016-08-25T22:19:08.000Z" title="发表于 2016-08-25 22:19:08">2016-08-25</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/code/">code</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/Qt/">Qt</a><span class="article-meta__link">•</span><a class="article-meta__tags" href="/tags/QMenu/">QMenu</a><span class="article-meta__link">•</span><a class="article-meta__tags" href="/tags/Maya/">Maya</a><span class="article-meta__link">•</span><a class="article-meta__tags" href="/tags/PySide/">PySide</a></span></div><div class="content">
+Adding a QMenu to Maya
+https://groups.google.com/forum/#!forum/python_inside_maya
+
+
+
+
+code:12345678910111213141516171819202122232425import shibokenfrom PySide import QtGui, QtCoreimport maya.OpenMayaUI as apiUIdef getMayaWindow():    ptr = apiUI.MQtUtil.mainWindow()    if ptr is not None:        return shiboken.wrapInstance(long(ptr), QtGui.QMainWindow)def addMenuItem(mayaWindow=None, title=&#x27;&#x27;):    mainMenu = QtGui.QMenu(title)    menu = mayaWindow.menuBar().addMenu(mainMenu)    retur ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/post/ee1ed4f7.html" title="github tips">     <img class="post_bg" data-lazy-src="https://fastly.jsdelivr.net/gh/jerryc127/CDN/img/material-2.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="github tips"></a></div><div class="recent-post-info"><a class="article-title" href="/post/ee1ed4f7.html" title="github tips">github tips</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2016-08-25T22:19:08.000Z" title="发表于 2016-08-25 22:19:08">2016-08-25</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/code/">code</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/github/">github</a></span></div><div class="content">删除所有 tag 和 release:123456# 获取所有的 taggit tag -l | xargs -n 1 git push --delete origin# 删除本地的 taggit tag | xargs git tag -d
+</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/post/731fe6d6.html" title="meta human dna tool">     <img class="post_bg" data-lazy-src="https://fastly.jsdelivr.net/gh/jerryc127/CDN/img/material-8.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="meta human dna tool"></a></div><div class="recent-post-info"><a class="article-title" href="/post/731fe6d6.html" title="meta human dna tool">meta human dna tool</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2016-08-25T22:19:08.000Z" title="发表于 2016-08-25 22:19:08">2016-08-25</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/code/">code</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/maya/">maya</a><span class="article-meta__link">•</span><a class="article-meta__tags" href="/tags/metahuman/">metahuman</a></span></div><div class="content">
+
+code:12
+</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/post/cbced7f3.html" title="sqlite3 基础操作">     <img class="post_bg" data-lazy-src="https://fastly.jsdelivr.net/gh/jerryc127/CDN/img/material-4.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="sqlite3 基础操作"></a></div><div class="recent-post-info"><a class="article-title" href="/post/cbced7f3.html" title="sqlite3 基础操作">sqlite3 基础操作</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2016-08-25T22:19:08.000Z" title="发表于 2016-08-25 22:19:08">2016-08-25</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/code/">code</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/Maya/">Maya</a></span></div><div class="content">
+
+code:12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970717273747576777879import sqlite3DB_FILE_PATH = &quot;W:/shome/chengang/fps.db&quot;conn = sqlite3.connect(DB_FILE_PATH)cursor = conn.cursor()# 添加 tablecursor.execute(&#x27;create table COMPANY (proj,char,fps)&#x27;)cursor.rowcountcursor.close()conn.commit()conn.close()# 添加conn = sqlite3.connect(DB_FILE_PATH)cursor = conn.cursor()users = (&#x27;wps&#x27;,&#x27; ...</div></div></div><nav id="pagination"><div class="pagination"><span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="card-info-avatar is-center"><img class="avatar-img" data-lazy-src="/uploads/avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/><div class="author-info__name">Jonn</div><div class="author-info__description">Rigging | MEL | Python | MayaAPI | MayaPythonAPI |PyQt | C++ ...</div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">11</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length-num">14</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">分类</div><div class="length-num">4</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/jonntd"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/jonntd" target="_blank" title=""><i class="fa fa-github"></i></a><a class="social-icon" href="mailto:jonntd@jonntd.com" target="_blank" title=""><i class="fa fa-envelope"></i></a></div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/post/fb874109.html" title="maya2022 py2 build numpy"><img data-lazy-src="https://fastly.jsdelivr.net/gh/jerryc127/CDN/img/material-4.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="maya2022 py2 build numpy"/></a><div class="content"><a class="title" href="/post/fb874109.html" title="maya2022 py2 build numpy">maya2022 py2 build numpy</a><time datetime="2023-03-30T22:19:08.000Z" title="发表于 2023-03-30 22:19:08">2023-03-30</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/post/12e2ce1.html" title="maya_code"><img data-lazy-src="https://fastly.jsdelivr.net/gh/jerryc127/CDN/img/material-4.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="maya_code"/></a><div class="content"><a class="title" href="/post/12e2ce1.html" title="maya_code">maya_code</a><time datetime="2023-03-30T22:19:08.000Z" title="发表于 2023-03-30 22:19:08">2023-03-30</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/post/71a4c25d.html" title="unity python api 使用"><img data-lazy-src="https://fastly.jsdelivr.net/gh/jerryc127/CDN/img/material-1.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="unity python api 使用"/></a><div class="content"><a class="title" href="/post/71a4c25d.html" title="unity python api 使用">unity python api 使用</a><time datetime="2021-03-23T15:04:25.000Z" title="发表于 2021-03-23 15:04:25">2021-03-23</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/post/37132ce7.html" title="VS2013编译boost"><img data-lazy-src="https://fastly.jsdelivr.net/gh/jerryc127/CDN/img/material-10.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="VS2013编译boost"/></a><div class="content"><a class="title" href="/post/37132ce7.html" title="VS2013编译boost">VS2013编译boost</a><time datetime="2016-09-08T20:02:12.000Z" title="发表于 2016-09-08 20:02:12">2016-09-08</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/post/61ba0cba.html" title="softSelectionweights"><img data-lazy-src="https://fastly.jsdelivr.net/gh/jerryc127/CDN/img/material-4.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="softSelectionweights"/></a><div class="content"><a class="title" href="/post/61ba0cba.html" title="softSelectionweights">softSelectionweights</a><time datetime="2016-09-08T20:02:12.000Z" title="发表于 2016-09-08 20:02:12">2016-09-08</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
+            <i class="fas fa-folder-open"></i>
+            <span>分类</span>
+            
+            </div>
+            <ul class="card-category-list" id="aside-cat-list">
+            <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Visual-Studio/"><span class="card-category-list-name">Visual Studio</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/code/"><span class="card-category-list-name">code</span><span class="card-category-list-count">8</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/python/"><span class="card-category-list-name">python</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/unity/"><span class="card-category-list-name">unity</span><span class="card-category-list-count">1</span></a></li>
+            </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>标签</span></div><div class="card-tag-cloud"><a href="/tags/Qt/" style="font-size: 1.3em; color: rgb(186, 151, 80)">Qt</a><a href="/tags/QMenu/" style="font-size: 1.3em; color: rgb(84, 99, 50)">QMenu</a><a href="/tags/Maya/" style="font-size: 1.5em; color: rgb(152, 18, 127)">Maya</a><a href="/tags/PySide/" style="font-size: 1.3em; color: rgb(121, 164, 19)">PySide</a><a href="/tags/UV/" style="font-size: 1.1em; color: rgb(30, 31, 122)">UV</a><a href="/tags/C/" style="font-size: 1.1em; color: rgb(137, 55, 9)">C++</a><a href="/tags/boost/" style="font-size: 1.1em; color: rgb(17, 183, 107)">boost</a><a href="/tags/github/" style="font-size: 1.1em; color: rgb(26, 143, 200)">github</a><a href="/tags/Python/" style="font-size: 1.1em; color: rgb(98, 71, 160)">Python</a><a href="/tags/maya/" style="font-size: 1.1em; color: rgb(80, 40, 162)">maya</a><a href="/tags/metahuman/" style="font-size: 1.1em; color: rgb(104, 54, 43)">metahuman</a><a href="/tags/python/" style="font-size: 1.1em; color: rgb(169, 57, 185)">python</a><a href="/tags/unity/" style="font-size: 1.1em; color: rgb(66, 27, 178)">unity</a><a href="/tags/Samba/" style="font-size: 1.1em; color: rgb(180, 93, 181)">Samba</a></div></div><div class="card-widget card-archives"><div class="item-headline"><i class="fas fa-archive"></i><span>归档</span></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/03/"><span class="card-archive-list-date">三月 2023</span><span class="card-archive-list-count">2</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2021/03/"><span class="card-archive-list-date">三月 2021</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2016/09/"><span class="card-archive-list-date">九月 2016</span><span class="card-archive-list-count">3</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2016/08/"><span class="card-archive-list-date">八月 2016</span><span class="card-archive-list-count">5</span></a></li></ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站资讯</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">11</div></div><div class="webinfo-item"><div class="item-name">已运行时间 :</div><div class="item-count" id="runtimeshow" data-publishDate="2019-11-13T00:00:00.000Z"></div></div><div class="webinfo-item"><div class="item-name">本站总字数 :</div><div class="item-count">2.5k</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"></div></div><div class="webinfo-item"><div class="item-name">本站总访问量 :</div><div class="item-count" id="busuanzi_value_site_pv"></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2025-12-04T08:29:27.174Z"></div></div></div></div></div></div></main><footer id="footer" style="background: #383838"><div id="footer-wrap"><div class="framework-info"><span> </span><img src="https://img.shields.io/badge/框架-Hexo-orange.svg"/><span class="footer-separator">  </span><span> </span><img src="https://img.shields.io/badge/主题-butterfly-orange.svg"/><span class="footer-separator">  </span><span> </span><img src="https://img.shields.io/badge/License-GPL--3.0-blue.svg"/></div><div class="copyright">&copy;2020 - 2025 By Jonn</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div></div><hr/><div id="local-search-results"></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/medium-zoom/dist/medium-zoom.min.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><script src="/js/search/local-search.js"></script><script>var preloader = {
+  endLoading: () => {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loading-box').classList.add("loaded")
+  },
+  initLoading: () => {
+    document.body.style.overflow = '';
+    document.getElementById('loading-box').classList.remove("loaded")
+
+  }
+}
+window.addEventListener('load',preloader.endLoading())</script><div class="js-pjax"><script>function subtitleType () {
+  fetch('https://v1.hitokoto.cn')
+    .then(response => response.json())
+    .then(data => {
+      if (true) {
+        var from = '出自 ' + data.from
+        var sub = "".length == 0 ? new Array() : "".split(',')
+        var both = sub.unshift(data.hitokoto, from)
+        var typed = new Typed('#subtitle', {
+          strings: sub,
+          startDelay: 300,
+          typeSpeed: 150,
+          loop: true,
+          backSpeed: 50,
+        })
+      } else {
+        document.getElementById('subtitle').innerHTML = data.hitokoto
+      }
+    })
+}
+
+if (true) {
+  if (typeof Typed === 'function') {
+    subtitleType()
+  } else {
+    getScript('https://cdn.jsdelivr.net/npm/typed.js/lib/typed.min.js').then(subtitleType)
+  }
+} else {
+  subtitleType()
+}
+</script></div><script defer="defer" id="ribbon" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-ribbon.min.js" size="150" alpha="0.6" zIndex="-1" mobile="true" data-click="true"></script><script id="click-heart" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/click-heart.min.js" async="async" mobile="true"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

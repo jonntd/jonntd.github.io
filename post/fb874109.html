@@ -1,0 +1,181 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>maya2022 py2 build numpy | Jonn</title><meta name="keywords" content="Maya,Python"><meta name="author" content="Jonn"><meta name="copyright" content="Jonn"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="参考 https:&#x2F;&#x2F;medium.com&#x2F;@1null4null&#x2F;cython-maya2018-2019-python2-7-17-921c548337b9 https:&#x2F;&#x2F;vaishakp.com&#x2F;2018&#x2F;11&#x2F;21&#x2F;cython-in-maya-2018-windows&#x2F; https:&#x2F;&#x2F;gist.github.com&#x2F;nrtkbb&#x2F;5b65d2f5ed42bd9947b5  下载cyt">
+<meta property="og:type" content="article">
+<meta property="og:title" content="maya2022 py2 build numpy">
+<meta property="og:url" content="https://blog.cgdreamwork.com/post/fb874109.html">
+<meta property="og:site_name" content="Jonn">
+<meta property="og:description" content="参考 https:&#x2F;&#x2F;medium.com&#x2F;@1null4null&#x2F;cython-maya2018-2019-python2-7-17-921c548337b9 https:&#x2F;&#x2F;vaishakp.com&#x2F;2018&#x2F;11&#x2F;21&#x2F;cython-in-maya-2018-windows&#x2F; https:&#x2F;&#x2F;gist.github.com&#x2F;nrtkbb&#x2F;5b65d2f5ed42bd9947b5  下载cyt">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://fastly.jsdelivr.net/gh/jerryc127/CDN/img/material-4.png">
+<meta property="article:published_time" content="2023-03-30T22:19:08.000Z">
+<meta property="article:modified_time" content="2025-12-04T08:29:04.879Z">
+<meta property="article:author" content="Jonn">
+<meta property="article:tag" content="Maya">
+<meta property="article:tag" content="Python">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://fastly.jsdelivr.net/gh/jerryc127/CDN/img/material-4.png"><link rel="shortcut icon" href="/uploads/favicon.ico"><link rel="canonical" href="https://blog.cgdreamwork.com/post/fb874109"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":150,"languages":{"author":"作者: Jonn","link":"链接: ","source":"来源: Jonn","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  lightbox: 'mediumZoom',
+  Snackbar: undefined,
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: true,
+  islazyload: true,
+  isanchor: true
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = { 
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2025-12-04 08:29:04'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    })(window)</script><link rel="stylesheet" href="/css/background.css"><meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Jonn" type="application/atom+xml">
+</head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="author-avatar"><img class="avatar-img" data-lazy-src="/uploads/avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">11</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">14</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">4</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://fastly.jsdelivr.net/gh/jerryc127/CDN/img/material-4.png')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Jonn</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">maya2022 py2 build numpy</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-03-30T22:19:08.000Z" title="发表于 2023-03-30 22:19:08">2023-03-30</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-12-04T08:29:04.879Z" title="更新于 2025-12-04 08:29:04">2025-12-04</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/code/">code</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">316</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>1分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><ul>
+<li><a target="_blank" rel="noopener" href="https://medium.com/@1null4null/cython-maya2018-2019-python2-7-17-921c548337b9">https://medium.com/@1null4null/cython-maya2018-2019-python2-7-17-921c548337b9</a></li>
+<li><a target="_blank" rel="noopener" href="https://vaishakp.com/2018/11/21/cython-in-maya-2018-windows/">https://vaishakp.com/2018/11/21/cython-in-maya-2018-windows/</a></li>
+<li><a target="_blank" rel="noopener" href="https://gist.github.com/nrtkbb/5b65d2f5ed42bd9947b5">https://gist.github.com/nrtkbb/5b65d2f5ed42bd9947b5</a></li>
+</ul>
+<h4 id="下载cython源码解压"><a href="#下载cython源码解压" class="headerlink" title="下载cython源码解压:"></a>下载cython源码解压:</h4><p><a target="_blank" rel="noopener" href="https://codeload.github.com/cython/cython/zip/refs/heads/master">https://codeload.github.com/cython/cython/zip/refs/heads/master</a></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">用mayapy编译会提示找不到python.h</span><br><span class="line"></span><br><span class="line"><span class="comment"># 增加代码</span></span><br><span class="line">extra_include_dirs = []</span><br><span class="line"><span class="keyword">if</span> <span class="string">&#x27;EXTRA_INCLUDE_DIRS&#x27;</span> <span class="keyword">in</span> os.environ:</span><br><span class="line">	extra_include_dirs = os.environ[<span class="string">&#x27;EXTRA_INCLUDE_DIRS&#x27;</span>].split(<span class="string">&#x27;;&#x27;</span>)</span><br><span class="line">	print(<span class="string">&quot;EXTRA_INCLUDE_DIRS: &quot;</span>, extra_include_dirs)</span><br><span class="line">extra_libraries = []</span><br><span class="line"><span class="keyword">if</span> <span class="string">&#x27;EXTRA_LIBRARIES&#x27;</span> <span class="keyword">in</span> os.environ:</span><br><span class="line">	extra_libraries = os.environ[<span class="string">&#x27;EXTRA_LIBRARIES&#x27;</span>].split(<span class="string">&#x27;;&#x27;</span>)</span><br><span class="line">	print(<span class="string">&quot;EXTRA_LIBRARIES: &quot;</span>, extra_libraries)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 修改</span></span><br><span class="line">extensions.append(Extension(</span><br><span class="line">    module, sources=[pyx_source_file],</span><br><span class="line">    define_macros=defines <span class="keyword">if</span> <span class="string">&#x27;.refnanny&#x27;</span> <span class="keyword">not</span> <span class="keyword">in</span> module <span class="keyword">else</span> [],</span><br><span class="line">    depends=dep_files ,</span><br><span class="line">    library_dirs=extra_libraries,  <span class="comment"># 增加</span></span><br><span class="line">    include_dirs=extra_include_dirs, <span class="comment"># 增加</span></span><br><span class="line">    ))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">set</span> VS90COMNTOOLS=%VS140COMNTOOLS%</span><br><span class="line"><span class="built_in">set</span> EXTRA_INCLUDE_DIRS=C:/Program Files/Autodesk/Maya2022/include/Python27/Python</span><br><span class="line"><span class="built_in">set</span> EXTRA_LIBRARIES=C:/Program Files/Autodesk/Maya2022/lib</span><br><span class="line"><span class="string">&quot;C:\Program Files\Autodesk\Maya2022\bin\mayapy2.exe&quot;</span> setup.py build_ext --inplace</span><br></pre></td></tr></table></figure>
+
+<h4 id="测试按照这里建立文件夹测试"><a href="#测试按照这里建立文件夹测试" class="headerlink" title="测试按照这里建立文件夹测试"></a>测试按照这里建立文件夹测试</h4><p><a target="_blank" rel="noopener" href="https://gist.github.com/nrtkbb/5b65d2f5ed42bd9947b5">https://gist.github.com/nrtkbb/5b65d2f5ed42bd9947b5</a></p>
+<h3 id="setup-py"><a href="#setup-py" class="headerlink" title="setup.py"></a>setup.py</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> distutils.core <span class="keyword">import</span> setup</span><br><span class="line"><span class="keyword">from</span> distutils.extension <span class="keyword">import</span> Extension</span><br><span class="line"><span class="keyword">from</span> Cython.Distutils <span class="keyword">import</span> build_ext</span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"></span><br><span class="line">extra_include_dirs = []</span><br><span class="line"><span class="keyword">if</span> <span class="string">&#x27;EXTRA_INCLUDE_DIRS&#x27;</span> <span class="keyword">in</span> os.environ:</span><br><span class="line">	extra_include_dirs = os.environ[<span class="string">&#x27;EXTRA_INCLUDE_DIRS&#x27;</span>].split(<span class="string">&#x27;;&#x27;</span>)</span><br><span class="line">	print(<span class="string">&quot;EXTRA_INCLUDE_DIRS: &quot;</span>, extra_include_dirs)</span><br><span class="line"></span><br><span class="line">extra_libraries = []</span><br><span class="line"><span class="keyword">if</span> <span class="string">&#x27;EXTRA_LIBRARIES&#x27;</span> <span class="keyword">in</span> os.environ:</span><br><span class="line">	extra_libraries = os.environ[<span class="string">&#x27;EXTRA_LIBRARIES&#x27;</span>].split(<span class="string">&#x27;;&#x27;</span>)</span><br><span class="line">	print(<span class="string">&quot;EXTRA_LIBRARIES: &quot;</span>, extra_libraries)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">setup(</span><br><span class="line">    cmdclass = &#123;<span class="string">&#x27;build_ext&#x27;</span>: build_ext&#125;,</span><br><span class="line">    ext_modules = [Extension(<span class="string">&quot;helloworld&quot;</span>, </span><br><span class="line">    						[<span class="string">&quot;helloworld.pyx&quot;</span>],</span><br><span class="line">				            library_dirs=extra_libraries,</span><br><span class="line">				            include_dirs=extra_include_dirs,</span><br><span class="line">    						)]</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+<h3 id="helloworld-pyx"><a href="#helloworld-pyx" class="headerlink" title="helloworld.pyx"></a>helloworld.pyx</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">This is cython file.</span></span><br><span class="line"><span class="string">Compiled from setup.py and python ( same version to mayapy )</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">hello</span>():</span></span><br><span class="line">    <span class="built_in">print</span> <span class="string">&quot;Hello World&quot;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="cython-test-py"><a href="#cython-test-py" class="headerlink" title="cython_test.py"></a>cython_test.py</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">This is pure python file.</span></span><br><span class="line"><span class="string">Called from maya</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> helloworld</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">hello</span>():</span></span><br><span class="line">    helloworld.hello()</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">Jonn</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://blog.cgdreamwork.com/post/fb874109.html">https://blog.cgdreamwork.com/post/fb874109.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://blog.cgdreamwork.com" target="_blank">Jonn</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Maya/">Maya</a><a class="post-meta__tags" href="/tags/Python/">Python</a></div><div class="post_share"><div class="social-share" data-image="https://fastly.jsdelivr.net/gh/jerryc127/CDN/img/material-4.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button button--animated"><i class="fas fa-qrcode"></i> 打赏</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="/img/wechat.jpg" target="_blank"><img class="post-qr-code-img" data-lazy-src="/img/wechat.jpg" alt="wechat"/></a><div class="post-qr-code-desc">wechat</div></li><li class="reward-item"><a href="/img/alipay.jpg" target="_blank"><img class="post-qr-code-img" data-lazy-src="/img/alipay.jpg" alt="alipay"/></a><div class="post-qr-code-desc">alipay</div></li></ul></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/post/12e2ce1.html"><img class="next-cover" data-lazy-src="https://fastly.jsdelivr.net/gh/jerryc127/CDN/img/material-4.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">maya_code</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span> 相关推荐</span></div><div class="relatedPosts-list"><div><a href="/post/12e2ce1.html" title="maya_code"><img class="cover" data-lazy-src="https://fastly.jsdelivr.net/gh/jerryc127/CDN/img/material-4.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-03-30</div><div class="title">maya_code</div></div></a></div><div><a href="/post/7aa2157f.html" title="DeleteUvSets"><img class="cover" data-lazy-src="https://fastly.jsdelivr.net/gh/jerryc127/CDN/img/material-3.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2016-09-01</div><div class="title">DeleteUvSets</div></div></a></div><div><a href="/post/4fee8c48.html" title="Adding a QMenu to Maya"><img class="cover" data-lazy-src="https://fastly.jsdelivr.net/gh/jerryc127/CDN/img/material-5.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2016-08-25</div><div class="title">Adding a QMenu to Maya</div></div></a></div><div><a href="/post/cbced7f3.html" title="sqlite3 基础操作"><img class="cover" data-lazy-src="https://fastly.jsdelivr.net/gh/jerryc127/CDN/img/material-4.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2016-08-25</div><div class="title">sqlite3 基础操作</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%82%E8%80%83"><span class="toc-number">1.</span> <span class="toc-text">参考</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%8B%E8%BD%BDcython%E6%BA%90%E7%A0%81%E8%A7%A3%E5%8E%8B"><span class="toc-number">1.1.</span> <span class="toc-text">下载cython源码解压:</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B5%8B%E8%AF%95%E6%8C%89%E7%85%A7%E8%BF%99%E9%87%8C%E5%BB%BA%E7%AB%8B%E6%96%87%E4%BB%B6%E5%A4%B9%E6%B5%8B%E8%AF%95"><span class="toc-number">1.2.</span> <span class="toc-text">测试按照这里建立文件夹测试</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#setup-py"><span class="toc-number">2.</span> <span class="toc-text">setup.py</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#helloworld-pyx"><span class="toc-number">3.</span> <span class="toc-text">helloworld.pyx</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#cython-test-py"><span class="toc-number">4.</span> <span class="toc-text">cython_test.py</span></a></li></ol></div></div></div></div></main><footer id="footer" style="background: #383838"><div id="footer-wrap"><div class="framework-info"><span> </span><img src="https://img.shields.io/badge/框架-Hexo-orange.svg"/><span class="footer-separator">  </span><span> </span><img src="https://img.shields.io/badge/主题-butterfly-orange.svg"/><span class="footer-separator">  </span><span> </span><img src="https://img.shields.io/badge/License-GPL--3.0-blue.svg"/></div><div class="copyright">&copy;2020 - 2025 By Jonn</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div></div><hr/><div id="local-search-results"></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/medium-zoom/dist/medium-zoom.min.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><script src="/js/search/local-search.js"></script><script>var preloader = {
+  endLoading: () => {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loading-box').classList.add("loaded")
+  },
+  initLoading: () => {
+    document.body.style.overflow = '';
+    document.getElementById('loading-box').classList.remove("loaded")
+
+  }
+}
+window.addEventListener('load',preloader.endLoading())</script><div class="js-pjax"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css"><script src="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.css"><script>(() => {
+  document.querySelectorAll('#article-container span.katex-display').forEach(item => {
+    btf.wrap(item, 'div', '', 'katex-wrap')
+  })
+})()</script></div><script defer="defer" id="ribbon" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-ribbon.min.js" size="150" alpha="0.6" zIndex="-1" mobile="true" data-click="true"></script><script id="click-heart" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/click-heart.min.js" async="async" mobile="true"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
